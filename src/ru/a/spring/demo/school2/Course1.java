@@ -2,12 +2,9 @@ package ru.a.spring.demo.school2;
 
 public class Course1 {
     private String name;
-    private String duration;
+    private int duration;
 
-    public Course1() {
-    }
-
-    public Course1(String name, String duration) {
+    public Course1(String name, int duration) {
         this.name = name;
         this.duration = duration;
     }
@@ -20,16 +17,16 @@ public class Course1 {
         this.name = name;
     }
 
-    public String getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
     @Override
     public String toString() {
-        return String.format("Course name %s with duration %s", name, duration);
+        return String.format("Course name %s with duration %s months", name, duration);
     }
 }

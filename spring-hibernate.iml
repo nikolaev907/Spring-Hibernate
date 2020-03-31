@@ -5,6 +5,7 @@
       <configuration>
         <fileset id="fileset" name="Spring Config A" removed="false">
           <file>file://$MODULE_DIR$/src/ru/a/spring/demo/spring-config-a.xml</file>
+          <file>file://$MODULE_DIR$/src/ru/a/spring/demo/spring-config-a-school2.xml</file>
         </fileset>
         <fileset id="fileset2" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/ru/a/spring/demo/spring-config-a.xml</file>

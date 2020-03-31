@@ -6,6 +6,15 @@
         <fileset id="fileset" name="Spring Config A" removed="false">
           <file>file://$MODULE_DIR$/src/ru/a/spring/demo/spring-config-a.xml</file>
         </fileset>
+        <fileset id="fileset2" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/ru/a/spring/demo/spring-config-a.xml</file>
+          <file>file://$MODULE_DIR$/src/spring-config-collection.xml</file>
+          <file>file://$MODULE_DIR$/src/spring-config-di.xml</file>
+          <file>file://$MODULE_DIR$/src/spring-config-lazy.xml</file>
+          <file>file://$MODULE_DIR$/src/spring-config-lifecycle.xml</file>
+          <file>file://$MODULE_DIR$/src/spring-config-scope.xml</file>
+          <file>file://$MODULE_DIR$/src/spring-config.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>

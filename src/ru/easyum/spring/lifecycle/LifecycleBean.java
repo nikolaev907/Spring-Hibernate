@@ -13,7 +13,10 @@ public class LifecycleBean {
     public void init() {
         System.out.print("Start generating secret... ");
         byte[] array = new byte[7];
-        new Random().nextBytes(array);
+        Random random = new Random();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (byte)(random.nextInt('z' - '0') + '0');
+        }
         secret = new String(array, Charset.forName("UTF-8"));
         System.out.println("done.");
     }

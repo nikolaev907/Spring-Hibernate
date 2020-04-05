@@ -15,13 +15,17 @@ public class Student {
         this.fio = fio;
     }
 
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public void setFio(String fio) {
+        this.fio = fio;
+    }
+
     @Override
     public String toString() {
         return String.format("Студент %s на курсе %s", fio, course);
     }
 
-    @Required
-    public void setFio(String fio) {
-        this.fio = fio;
-    }
 }

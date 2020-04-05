@@ -16,6 +16,14 @@ public class Course {
         this.duration = duration;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
     @PostConstruct
     public void cacheCourses() {
         cache.add(this);

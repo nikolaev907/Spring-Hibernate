@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public class Teacher {
 
     @Autowired
-//    @Qualifier("course-java")
+    @Qualifier("course-python")
     private Course course;
     private Student student;
 
@@ -15,7 +15,7 @@ public class Teacher {
     }
 
     @Autowired
-    public void setStudent(Student student) {
+    public void setStudent(ru.easyum.spring.di.Student student) {
         this.student = student;
     }
 

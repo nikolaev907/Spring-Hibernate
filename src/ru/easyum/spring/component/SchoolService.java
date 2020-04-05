@@ -8,14 +8,14 @@ import ru.easyum.spring.di.Course;
 @Component
 public class SchoolService {
 
-    @Bean
-    @Qualifier("java")
+    @Bean(name = "java")
+//    @Qualifier("java")
     public Course getJavaCourse() {
         return new Course("Spring+hibernate", 32);
     }
 
-    @Bean
-    @Qualifier("python")
+    @Bean (name = "python")
+ //   @Qualifier("python")
     public Course getPythonCourse() {
         return new Course("python+web", 124);
     }

@@ -2,6 +2,7 @@ package ru.easyum.spring.component;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import ru.easyum.spring.di.Course;
 
 public class MainComponent {
 
@@ -14,7 +15,9 @@ public class MainComponent {
         System.out.println(schoolService.getJavaCourse());
         System.out.println(schoolService.getPythonCourse());
 
-        TeacherService teacherService = (TeacherService) context.getBean("teacher");
-        System.out.println(teacherService.getTeachers());
+        Course course1 = context.getBean("java", Course.class);
+        System.out.println(course1);
+        Course course2 = context.getBean("python", Course.class);
+        System.out.println(course2);
     }
 }

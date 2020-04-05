@@ -9,7 +9,7 @@ import ru.easyum.spring.di.Teacher;
 public class MainRequired {
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("config/spring-config-annotaion.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("config/annotation/spring-config-annotation.xml");
         Student student = context.getBean("student", Student.class);
         System.out.println(student);
 

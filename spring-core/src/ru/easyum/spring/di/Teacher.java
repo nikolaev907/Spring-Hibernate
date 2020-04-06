@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public class Teacher {
 
     @Autowired
-//    @Qualifier("course-java")
+    @Qualifier("course-java")
     private Course course;
     private Student student;
 

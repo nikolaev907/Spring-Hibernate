@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class MainComponent {
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("config/spring-config-component.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("config/annotation/spring-config-component.xml");
         CourseService courseService = context.getBean(CourseService.class);
         System.out.println(courseService.getActiveTeacher());
 

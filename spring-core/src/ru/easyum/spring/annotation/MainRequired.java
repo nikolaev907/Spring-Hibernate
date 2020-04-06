@@ -6,6 +6,7 @@ import ru.easyum.spring.di.Course;
 import ru.easyum.spring.di.Student;
 import ru.easyum.spring.di.Teacher;
 
+
 public class MainRequired {
 
     public static void main(String[] args) {

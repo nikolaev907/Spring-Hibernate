@@ -7,7 +7,7 @@ public class MainDAO {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-jdbc.xml");
-        JdbcCommonDAO dao = context.getBean(JdbcCommonDAO.class);
+        ru.easyum.dao.JdbcCommonDAO dao = context.getBean(ru.easyum.dao.JdbcCommonDAO.class);
 
         dao.insertCourse(1, "Spring+hibernate", 32);
         System.out.println(dao.getCourses());

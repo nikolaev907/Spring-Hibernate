@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Course {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     @Column(name = "name")
     private String name;
@@ -18,6 +18,13 @@ public class Course {
     @JoinColumn(name = "student_id")
     private Student student;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
+
+    public Course() {
+    }
+
     public Course(String name, Integer duration) {
         this.name = name;
         this.duration = duration;
@@ -25,5 +32,9 @@ public class Course {
 
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }

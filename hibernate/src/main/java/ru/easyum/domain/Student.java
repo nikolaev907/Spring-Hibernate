@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Cacheable
 @Table(name = "Student")
 public class Student {
 
@@ -20,6 +21,9 @@ public class Student {
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<Course> courses;
+
+    public Student() {
+    }
 
     public Student(String fio, Date birthDate, Long score, List<Course> courses) {
         this.fio = fio;

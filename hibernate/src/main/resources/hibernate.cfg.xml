@@ -9,8 +9,6 @@
         <property name="connection.username">sa</property>
         <property name="connection.password"></property>
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
-<!--        <mapping resource="Course.hbm.xml"/>-->
-<!--        <mapping class="ru.easyum.domain.Course"/>-->
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
     </session-factory>

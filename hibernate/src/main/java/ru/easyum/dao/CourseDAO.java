@@ -5,6 +5,7 @@ import ru.easyum.domain.Course;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -21,7 +22,9 @@ public class CourseDAO {
         return em.createQuery("FROM Course").getResultList();
     }
 
+    @Transactional
     public void save(Course course) {
         em.persist(course);
+        throw new RuntimeException();
     }
 }

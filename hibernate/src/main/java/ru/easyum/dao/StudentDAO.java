@@ -1,28 +1,30 @@
 package ru.easyum.dao;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import ru.easyum.HibernateSessionSingleton;
+import org.springframework.stereotype.Repository;
 import ru.easyum.domain.Student;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Repository
 public class StudentDAO {
 
+    @PersistenceContext
+    private EntityManager em;
+
     public Student findById(int id) {
-        return HibernateSessionSingleton.getSessionFactory().openSession().get(Student.class, id);
+        return em.find(Student.class, id);
     }
 
     public List<Student> findAll() {
-        return (List<Student>) HibernateSessionSingleton.getSessionFactory().openSession().createQuery("FROM Student").list();
+        return em.createQuery("FROM Student ").getResultList();
     }
 
+    @Transactional
     public void save(Student student) {
-        Session session = HibernateSessionSingleton.getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-        session.save(student);
-        tx.commit();
-        session.close();
+        em.persist(student);
     }
 
 }

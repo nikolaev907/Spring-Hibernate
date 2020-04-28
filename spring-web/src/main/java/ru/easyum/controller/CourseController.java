@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.easyum.domain.Course;
 import ru.easyum.domain.Teacher;
+import ru.easyum.repository.CourseRepository;
 import ru.easyum.service.CourseService;
 
 import java.util.List;
@@ -16,12 +17,29 @@ public class CourseController {
 
     @Autowired
     CourseService service;
+    @Autowired
+    CourseRepository repository;
 
     @RequestMapping(value = "/courses", method = RequestMethod.GET)
-    public String allCourses(Model model) {
-        List<Course> courses = service.findAllCourses();
+    public String allCourses(@RequestParam(defaultValue = "0") Integer pageNo,
+                             @RequestParam(defaultValue = "5") Integer pageSize,
+                             Model model) {
+        Long total = repository.count();
+        List<Course> courses = service.getPage(pageNo, pageSize);
         model.addAttribute("courses", courses);
-        return "/jsp/courses";
+        model.addAttribute("pages", new Integer[(int) Math.ceil((double) total / 5)]);
+        return "courses";
+    }
+
+    @GetMapping(path = "/course/add")
+    public String addCourse(Model model) {
+        return "courseAdd";
+    }
+
+    @PostMapping(path = "/course/save")
+    public String saveCourse(@RequestParam String name, @RequestParam int duration) {
+        service.saveCourse(new Course(name, duration));
+        return "redirect:/courses";
     }
 
     @RequestMapping(path = "/courses/{courseName}")
@@ -29,11 +47,6 @@ public class CourseController {
         List<Teacher> teachers = service.getTeachersByCourseName(courseName);
         model.addAttribute("teachers", teachers);
         return "/jsp/teachers";
-    }
-
-    @RequestMapping(path = "/course/add", method = RequestMethod.POST)
-    public void addCourse(@RequestBody Course course) {
-        service.saveCourse(course);
     }
 
     @RequestMapping("/course/get")
@@ -62,12 +75,6 @@ public class CourseController {
     @GetMapping("/create")
     public String create() {
         return "/jsp/create";
-    }
-
-    @PostMapping("/course/save")
-    public String save(@RequestParam String name, @RequestParam int duration) {
-        Course course = service.saveCourse(new Course(name, duration));
-        return "redirect:/course/get?courseId=" + course.getId();
     }
 
 }
